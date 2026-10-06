@@ -1,0 +1,55 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.CalendarPage">
+
+    <UserControl.Styles>
+        <Style Selector="Button.day">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+            <Setter Property="Width" Value="44"/>
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="CornerRadius" Value="22"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0"/>
+        </Style>
+        <Style Selector="Button.day:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimarySoftBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        </Style>
+        <Style Selector="Button.day.sel /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Spacing="14">
+
+        <TextBlock Text="Календарь" FontSize="22" FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextBrush}"/>
+
+        <Border Classes="card" MaxWidth="460" HorizontalAlignment="Left">
+            <StackPanel Spacing="12">
+
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Button Grid.Column="0" Content="‹" Click="Prev_Click" Width="40"/>
+                    <TextBlock x:Name="MonthTitle" Grid.Column="1" HorizontalAlignment="Center"
+                               VerticalAlignment="Center" FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextBrush}"/>
+                    <Button Grid.Column="2" Content="›" Click="Next_Click" Width="40"/>
+                </Grid>
+
+                <UniformGrid x:Name="DaysGrid" Columns="7"/>
+
+                <TextBlock x:Name="SelectedText" Foreground="{DynamicResource MutedBrush}"/>
+
+            </StackPanel>
+        </Border>
+
+    </StackPanel>
+
+</UserControl>

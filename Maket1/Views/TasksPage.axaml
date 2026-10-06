@@ -1,0 +1,47 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="using:Maket1.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.TasksPage">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <TextBlock Grid.Row="0" Text="Задачи" FontSize="22" FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextBrush}" Margin="0,0,0,14"/>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,150,Auto" Margin="0,0,0,14">
+            <TextBox x:Name="TitleBox" Grid.Column="0" Watermark="Новая задача" Margin="0,0,10,0"/>
+            <ComboBox x:Name="CategoryBox" Grid.Column="1" SelectedIndex="0"
+                      HorizontalAlignment="Stretch" Margin="0,0,10,0">
+                <ComboBoxItem Content="Дизайн"/>
+                <ComboBoxItem Content="Разработка"/>
+                <ComboBoxItem Content="Маркетинг"/>
+            </ComboBox>
+            <Button Grid.Column="2" Content="Добавить" Classes="primary" Click="Add_Click"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl x:Name="TaskList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="m:TaskItem">
+                        <Border Classes="card" Margin="0,0,0,10">
+                            <Grid ColumnDefinitions="*,110,100,Auto">
+                                <CheckBox Grid.Column="0" Content="{Binding Title}"
+                                          IsChecked="{Binding IsDone, Mode=TwoWay}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Category}" VerticalAlignment="Center"
+                                           Foreground="{DynamicResource MutedBrush}"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Date}" VerticalAlignment="Center"
+                                           Foreground="{DynamicResource MutedBrush}"/>
+                                <Button Grid.Column="3" Content="Удалить" Click="Delete_Click"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>

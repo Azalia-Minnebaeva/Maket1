@@ -1,0 +1,52 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="using:Maket1.Views"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Maket1.MainWindow"
+        Title="Project Studio"
+        Width="1100" Height="720" MinWidth="900" MinHeight="600"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource BgBrush}">
+
+    <Grid>
+
+        <views:LoginView x:Name="LoginScreen"/>
+
+        <Grid x:Name="AppScreen" ColumnDefinitions="240,*" IsVisible="False">
+
+            <Border Grid.Column="0"
+                    Background="{DynamicResource SurfaceBrush}"
+                    BorderBrush="{DynamicResource LineBrush}"
+                    BorderThickness="0,0,1,0"
+                    Padding="14">
+                <DockPanel>
+
+                    <TextBlock DockPanel.Dock="Top" Text="Project Studio" FontWeight="Bold"
+                               Foreground="{DynamicResource TextBrush}" Margin="10,6,0,24"/>
+
+                    <StackPanel DockPanel.Dock="Bottom" Spacing="4">
+                        <Button x:Name="BtnProfile" Classes="nav" Click="Profile_Click"/>
+                        <Button Classes="nav" Content="↪  Выйти" Click="Logout_Click"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="4">
+                        <Button x:Name="BtnOverview" Classes="nav" Content="Обзор" Click="Overview_Click"/>
+                        <Button x:Name="BtnProjects" Classes="nav" Content="Проекты" Click="Projects_Click"/>
+                        <Button x:Name="BtnTasks" Classes="nav" Content="Задачи" Click="Tasks_Click"/>
+                        <Button x:Name="BtnCalendar" Classes="nav" Content="Календарь" Click="Calendar_Click"/>
+                        <Button x:Name="BtnTeam" Classes="nav" Content="Команда" Click="Team_Click"/>
+                        <Button x:Name="BtnSettings" Classes="nav" Content="Настройки" Click="Settings_Click"/>
+                    </StackPanel>
+
+                </DockPanel>
+            </Border>
+
+            <ContentControl x:Name="PageHost" Grid.Column="1" Margin="28"/>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

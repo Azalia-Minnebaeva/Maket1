@@ -1,0 +1,96 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Maket1.App"
+             RequestedThemeVariant="Light">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="BgBrush">#EEF0F8</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceBrush">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="TextBrush">#1C1D2B</SolidColorBrush>
+                    <SolidColorBrush x:Key="MutedBrush">#8A8FA3</SolidColorBrush>
+                    <SolidColorBrush x:Key="LineBrush">#E8E9F2</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryBrush">#6C4DE6</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimarySoftBrush">#ECE8FD</SolidColorBrush>
+                    <SolidColorBrush x:Key="DangerBrush">#E5384F</SolidColorBrush>
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="BgBrush">#0D0D12</SolidColorBrush>
+                    <SolidColorBrush x:Key="SurfaceBrush">#1A1A22</SolidColorBrush>
+                    <SolidColorBrush x:Key="TextBrush">#F1F1F6</SolidColorBrush>
+                    <SolidColorBrush x:Key="MutedBrush">#8B8B9A</SolidColorBrush>
+                    <SolidColorBrush x:Key="LineBrush">#2A2A35</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimaryBrush">#6D4DF2</SolidColorBrush>
+                    <SolidColorBrush x:Key="PrimarySoftBrush">#3A2F7A</SolidColorBrush>
+                    <SolidColorBrush x:Key="DangerBrush">#FF5C6C</SolidColorBrush>
+                </ResourceDictionary>
+
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
+    <Application.Styles>
+        <FluentTheme />
+
+        <!-- Карточка -->
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="{DynamicResource SurfaceBrush}"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource LineBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="14"/>
+            <Setter Property="Padding" Value="16"/>
+        </Style>
+
+        <!-- Кнопка меню -->
+        <Style Selector="Button.nav">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource MutedBrush}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="Padding" Value="14,11"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style Selector="Button.nav:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource BgBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        </Style>
+        <Style Selector="Button.nav:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource BgBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource TextBrush}"/>
+        </Style>
+        <Style Selector="Button.nav.active">
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style Selector="Button.nav.active /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimarySoftBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+        </Style>
+        <Style Selector="Button.nav.active:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimarySoftBrush}"/>
+            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+        </Style>
+
+        <!-- Главная кнопка -->
+        <Style Selector="Button.primary">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Padding" Value="16,10"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        <Style Selector="Button.primary:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Opacity" Value="0.85"/>
+        </Style>
+        <Style Selector="Button.primary:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Application.Styles>
+
+</Application>

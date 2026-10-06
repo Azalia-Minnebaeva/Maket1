@@ -1,0 +1,47 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="using:Maket1.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.TeamPage">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <TextBlock Grid.Row="0" Text="Команда" FontSize="22" FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextBrush}" Margin="0,0,0,14"/>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*,*,Auto" Margin="0,0,0,14">
+            <TextBox x:Name="NameBox" Grid.Column="0" Watermark="Имя и фамилия" Margin="0,0,10,0"/>
+            <TextBox x:Name="RoleBox" Grid.Column="1" Watermark="Должность" Margin="0,0,10,0"/>
+            <Button Grid.Column="2" Content="Добавить" Classes="primary" Click="Add_Click"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl x:Name="TeamList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="m:Member">
+                        <Border Classes="card" Margin="0,0,0,10">
+                            <Grid ColumnDefinitions="Auto,*,Auto">
+                                <Border Grid.Column="0" Width="40" Height="40" CornerRadius="20"
+                                        Background="{DynamicResource PrimaryBrush}" Margin="0,0,14,0">
+                                    <TextBlock Text="{Binding Initial}" Foreground="White" FontWeight="Bold"
+                                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource TextBrush}"/>
+                                    <TextBlock Text="{Binding Role}" FontSize="12"
+                                               Foreground="{DynamicResource MutedBrush}"/>
+                                </StackPanel>
+                                <Button Grid.Column="2" Content="Удалить" Click="Delete_Click"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,50 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:m="using:Maket1.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.ProjectsPage">
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+        <TextBlock Grid.Row="0" Text="Проекты" FontSize="22" FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextBrush}" Margin="0,0,0,14"/>
+
+        <!-- Добавление проекта -->
+        <Grid Grid.Row="1" ColumnDefinitions="*,150,Auto" Margin="0,0,0,14">
+            <TextBox x:Name="NameBox" Grid.Column="0" Watermark="Название проекта" Margin="0,0,10,0"/>
+            <ComboBox x:Name="CategoryBox" Grid.Column="1" SelectedIndex="0"
+                      HorizontalAlignment="Stretch" Margin="0,0,10,0">
+                <ComboBoxItem Content="Дизайн"/>
+                <ComboBoxItem Content="Разработка"/>
+                <ComboBoxItem Content="Маркетинг"/>
+            </ComboBox>
+            <Button Grid.Column="2" Content="Добавить" Classes="primary" Click="Add_Click"/>
+        </Grid>
+
+        <!-- Список -->
+        <ScrollViewer Grid.Row="2">
+            <ItemsControl x:Name="ProjectList">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate x:DataType="m:Project">
+                        <Border Classes="card" Margin="0,0,0,10">
+                            <Grid ColumnDefinitions="*,110,200,Auto">
+                                <TextBlock Grid.Column="0" Text="{Binding Name}" VerticalAlignment="Center"
+                                           Foreground="{DynamicResource TextBrush}"/>
+                                <TextBlock Grid.Column="1" Text="{Binding Category}" VerticalAlignment="Center"
+                                           Foreground="{DynamicResource MutedBrush}"/>
+                                <ProgressBar Grid.Column="2" Value="{Binding Progress}" Maximum="100" Height="6"
+                                             Margin="0,0,16,0" VerticalAlignment="Center"
+                                             Foreground="{DynamicResource PrimaryBrush}"/>
+                                <Button Grid.Column="3" Content="Удалить" Click="Delete_Click"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+    </Grid>
+
+</UserControl>

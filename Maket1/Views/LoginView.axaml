@@ -1,0 +1,31 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.LoginView">
+
+    <Grid Background="{DynamicResource BgBrush}">
+        <Border Classes="card" Width="360" Padding="30"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Spacing="12">
+
+                <TextBlock Text="Project Studio" FontSize="26" FontWeight="Bold"
+                           Foreground="{DynamicResource TextBrush}"/>
+                <TextBlock Text="Войдите в свой аккаунт"
+                           Foreground="{DynamicResource MutedBrush}"/>
+
+                <TextBox x:Name="LoginBox" Watermark="Логин"/>
+                <TextBox x:Name="PasswordBox" Watermark="Пароль" PasswordChar="●"/>
+
+                <TextBlock x:Name="ErrorText" Text="Неверный логин или пароль"
+                           Foreground="{DynamicResource DangerBrush}" IsVisible="False"/>
+
+                <Button Content="Войти" Classes="primary" Click="Login_Click"
+                        HorizontalAlignment="Stretch"/>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</UserControl>

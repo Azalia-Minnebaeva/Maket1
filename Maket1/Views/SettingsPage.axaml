@@ -1,0 +1,28 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Maket1.Views.SettingsPage">
+
+    <StackPanel Spacing="14">
+
+        <TextBlock Text="Настройки" FontSize="22" FontWeight="SemiBold"
+                   Foreground="{DynamicResource TextBrush}"/>
+
+        <Border Classes="card" MaxWidth="500" HorizontalAlignment="Left">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel>
+                    <TextBlock Text="Тёмная тема" FontWeight="SemiBold"
+                               Foreground="{DynamicResource TextBrush}"/>
+                    <TextBlock Text="Переключение светлого и тёмного оформления"
+                               Foreground="{DynamicResource MutedBrush}"/>
+                </StackPanel>
+                <ToggleSwitch x:Name="ThemeSwitch" Grid.Column="1" OnContent="" OffContent=""
+                              IsCheckedChanged="Theme_Changed"/>
+            </Grid>
+        </Border>
+
+    </StackPanel>
+
+</UserControl>
